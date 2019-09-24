@@ -68,8 +68,19 @@ namespace cis237_assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
+            char[,] maze = mazeToTranspose;
+
+            for (int y = 0; y < mazeToTranspose.GetLength(0); y++) {
+                for (int x = 0; x < mazeToTranspose.GetLength(1); x++) {
+                    maze[y, x] = maze[x, y];
+                    Console.Write(maze[y,x]);
+                }
+                Console.Write(Environment.NewLine);
+            }
+
+
             //Write code her to create a transposed maze.
-            return new char[1, 1];
+            return maze;
         }
     }
 }

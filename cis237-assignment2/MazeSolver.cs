@@ -35,32 +35,33 @@ namespace cis237_assignment2
             // Implement maze traversal recursive call
             try
             {
+                maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO X
                 //MOVE UP
                 if (maze[yStart - 1, xStart] == '.')
                 {
                     PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart - 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
-                    maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO O
+                    
                     mazeTraversal(maze, xStart, yStart - 1); //CHANGES POSITION
                 }
                 //MOVE RIGHT
                 else if (maze[yStart, xStart + 1] == '.')
                 {
                     PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart + 1) + "]")); //CALLS PRINT POSITION.
-                    maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO O
+                    
                     mazeTraversal(maze, xStart + 1, yStart); //CHANGES POSITION
                 }
                 //MOVE DOWN
                 else if (maze[yStart + 1, xStart] == '.')
                 {
                     PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart + 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
-                    maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO O
+                    
                     mazeTraversal(maze, xStart, yStart + 1); //CHANGES POSITION
                 }
                 //MOVE LEFT
                 else if (maze[yStart, xStart - 1] == '.')
                 {
                     PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart - 1) + "]")); //CALLS PRINT POSITION.
-                    maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO O
+                    
                     mazeTraversal(maze, xStart - 1, yStart); //CHANGES POSITION
                 }
                 else
@@ -86,6 +87,13 @@ namespace cis237_assignment2
         }
 
 
+        /// <summary>
+        /// WHEN THERE ARE NO MORE PERIODS TO MOVE UPON, THIS METHOD IS CALLED TO BACKTRACK AND FOLLOW THE X'S UNTIL PERIODS
+        /// ARE FOUND ONCE MORE.
+        /// </summary>
+        /// <param name="maze"></param>
+        /// <param name="xStart"></param>
+        /// <param name="yStart"></param>
         private void BackTrack(char[,] maze, int xStart, int yStart) {
             //MOVE UP
             if (maze[yStart - 1, xStart] == 'X')
@@ -118,6 +126,10 @@ namespace cis237_assignment2
         }
 
 
+        /// <summary>
+        /// THIS PRINTS OUT THE FINISHED MAZE WITH ALL IT'S UPDATED MARKS.
+        /// </summary>
+        /// <param name="maze"></param>
         private void PrintMaze(char[,] maze) {
             for (int y = 0; y < maze.GetLength(0); y++) {
                 for (int x = 0; x < maze.GetLength(1); x++) {

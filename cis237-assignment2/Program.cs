@@ -68,14 +68,16 @@ namespace cis237_assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
-            char[,] maze = mazeToTranspose;
+            //CREATES AN EMPTY ARRAY OF THE SAME SIZE OF THE ENTERED ARRAY.
+            char[,] maze = new char[mazeToTranspose.GetLength(0), mazeToTranspose.GetLength(1)];
 
+            //ITERATES THROUGH THE ARRAY AND FLIPS THE VALUES.
             for (int y = 0; y < mazeToTranspose.GetLength(0); y++) {
                 for (int x = 0; x < mazeToTranspose.GetLength(1); x++) {
-                    maze[y, x] = maze[x, y];
-                    Console.Write(maze[y,x]);
+                    maze[y, x] = mazeToTranspose[x, y];
+                    //Console.Write(maze[y,x]); THIS WAS FOR TESTING.
                 }
-                Console.Write(Environment.NewLine);
+                //Console.Write(Environment.NewLine); THIS WAS FOR TESTING.
             }
 
 

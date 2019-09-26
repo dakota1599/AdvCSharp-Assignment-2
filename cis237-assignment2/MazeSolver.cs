@@ -16,6 +16,7 @@ namespace cis237_assignment2
     /// </summary>
     class MazeSolver
     {
+
         /// <summary>
         /// This is the public method that will allow someone to use this class to solve the maze.
         /// Feel free to change the return type, or add more parameters if you like, but it can be done
@@ -41,32 +42,31 @@ namespace cis237_assignment2
             // Implement maze traversal recursive call
             try
             {
+
+                PrintMaze(maze);
+
                 maze[yStart, xStart] = 'X'; //SETS THE PREVIOUS POSITION TO X
                 //MOVE UP
                 if (maze[yStart - 1, xStart] == '.')
                 {
-                    PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart - 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
                     
                     mazeTraversal(maze, xStart, yStart - 1); //CHANGES POSITION
                 }
                 //MOVE RIGHT
                 else if (maze[yStart, xStart + 1] == '.')
                 {
-                    PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart + 1) + "]")); //CALLS PRINT POSITION.
                     
                     mazeTraversal(maze, xStart + 1, yStart); //CHANGES POSITION
                 }
                 //MOVE DOWN
                 else if (maze[yStart + 1, xStart] == '.')
                 {
-                    PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart + 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
                     
                     mazeTraversal(maze, xStart, yStart + 1); //CHANGES POSITION
                 }
                 //MOVE LEFT
                 else if (maze[yStart, xStart - 1] == '.')
                 {
-                    PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart - 1) + "]")); //CALLS PRINT POSITION.
                     
                     mazeTraversal(maze, xStart - 1, yStart); //CHANGES POSITION
                 }
@@ -83,14 +83,6 @@ namespace cis237_assignment2
             }
         }
 
-        /// <summary>
-        /// THIS METHOD IS USED TO PRINT OUT THE CURRENT POSITION AND WHERE IT IS MOVING.
-        /// </summary>
-        private void PrintPosition(string current, string next) {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Previous Position: "+current+Environment.NewLine+"New Position: "+next+Environment.NewLine);
-            Console.ForegroundColor = ConsoleColor.Gray;
-        }
 
 
         /// <summary>
@@ -104,28 +96,28 @@ namespace cis237_assignment2
             //MOVE UP
             if (maze[yStart - 1, xStart] == 'X')
             {
-                PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart - 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
+
                 maze[yStart, xStart] = '0'; //SETS THE PREVIOUS POSITION TO O
                 mazeTraversal(maze, xStart, yStart - 1); //CHANGES POSITION
             }
             //MOVE RIGHT
             else if (maze[yStart, xStart + 1] == 'X')
             {
-                PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart + 1) + "]")); //CALLS PRINT POSITION.
+
                 maze[yStart, xStart] = '0'; //SETS THE PREVIOUS POSITION TO O
                 mazeTraversal(maze, xStart + 1, yStart); //CHANGES POSITION
             }
             //MOVE DOWN
             else if (maze[yStart + 1, xStart] == 'X')
             {
-                PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + (yStart + 1) + "," + xStart + "]")); //CALLS PRINT POSITION.
+
                 maze[yStart, xStart] = '0'; //SETS THE PREVIOUS POSITION TO O
                 mazeTraversal(maze, xStart, yStart + 1); //CHANGES POSITION
             }
             //MOVE LEFT
             else if (maze[yStart, xStart - 1] == 'X')
             {
-                PrintPosition(("[" + yStart + "," + xStart + "]"), ("[" + yStart + "," + (xStart - 1) + "]")); //CALLS PRINT POSITION.
+
                 maze[yStart, xStart] = '0'; //SETS THE PREVIOUS POSITION TO O
                 mazeTraversal(maze, xStart - 1, yStart); //CHANGES POSITION
             }
@@ -139,10 +131,31 @@ namespace cis237_assignment2
         private void PrintMaze(char[,] maze) {
             for (int y = 0; y < maze.GetLength(0); y++) {
                 for (int x = 0; x < maze.GetLength(1); x++) {
-                    Console.Write(maze[y, x]+" ");
+                    //GREEN FOR THE SUCCESSFUL PATH
+                    if (maze[y, x] == 'X')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(maze[y, x] + " ");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    //RED FOR ALL FAILED PATHS
+                    else if (maze[y, x] == '0') {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(maze[y, x] + " ");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    else
+                    {
+                        Console.Write(maze[y, x] + " ");
+                    }
                 }
                 Console.Write(Environment.NewLine);
             }
+
+            //YELLOW BORDER FOR ORGANIZATION
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("----------------------------");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }

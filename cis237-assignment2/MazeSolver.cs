@@ -80,6 +80,7 @@ namespace cis237_assignment2
                 Console.WriteLine("You win.");
                 //RUN A METHOD HERE TO PRINT OUT THE MAZE.
                 PrintMaze(maze);
+                Console.WriteLine(Environment.NewLine);
             }
         }
 

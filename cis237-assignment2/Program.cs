@@ -52,6 +52,8 @@ namespace cis237_assignment2
             // Solve the transposed maze.
             mazeSolver.SolveMaze(maze2, X_START, Y_START);
 
+            Console.ReadLine();
+
         }
 
         /// <summary>

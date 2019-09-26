@@ -139,7 +139,7 @@ namespace cis237_assignment2
         private void PrintMaze(char[,] maze) {
             for (int y = 0; y < maze.GetLength(0); y++) {
                 for (int x = 0; x < maze.GetLength(1); x++) {
-                    Console.Write(maze[y, x]);
+                    Console.Write(maze[y, x]+" ");
                 }
                 Console.Write(Environment.NewLine);
             }

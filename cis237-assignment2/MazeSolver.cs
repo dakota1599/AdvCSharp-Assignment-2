@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+Dakota Shapiro
+CIS 237 MW 3:30-5:45
+9/26/19 (Date Last Modified)
+ */
+
+using System;
 
 namespace cis237_assignment2
 {

@@ -2,7 +2,9 @@
 ## Due: 10-01-2019
 
 ## Author
-
+Dakota Shapiro
+CIS 237 MW 3:30-5:45
+9/26/19
 
 
 ## Description
@@ -49,7 +51,9 @@ Don't forget that you must have a base case for your recursive method or you wil
 | **Total**           | **100**|
 
 ## Outside Resources Used
-
+Getting length of single dimension of 2D arrays.
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/a7ddde89-35cc-4a29-9aab-ac42b8fd75fe/c-30-two-dimensional-array-length?forum=csharpgeneral
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
+NONE
